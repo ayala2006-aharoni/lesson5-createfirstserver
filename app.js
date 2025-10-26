@@ -18,12 +18,30 @@ app.get('/', (req, res) => {
     res.end("Im so gooddd");
 });
 
+// route עם query param (אופציונלי)
 app.get('/books', (req, res) => {
-    // send מחזיר גם מחרוזות וגם טיפוסים שונים
-    // res.send('Hello World!')
+    const { name } = req.query; // name יכול להיות undefined
+    let result = books;
 
-    res.json(books);
+    if (name) {
+        result = books.filter(b => b.name === name);
+    }
+    res.json(result);
 });
+
+//פה לשאות את המורה!למה זה לא עובד לי
+app.get('/books', (req, res) => {
+    const price = parseFloat(req.query.price); 
+    let result = books;
+    if (price) {
+        result = books.filter(b => b.price <= price);
+    }
+
+    res.json(result);
+});
+
+
+
 
 app.get('/books/:id', (req, res) => {
     console.log(req.params); // אוביקט עם פרמטרי חובה
