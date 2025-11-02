@@ -1,6 +1,12 @@
 
 import booksRouter from './routs/books.rout.js';
 import usersRouter from './routs/user.rout.js';
+import { config } from 'dotenv';
+
+// .env-קורא את כל קבצי ה
+// process.env ומכניס את הערכים כאוביקט לתוך
+config();
+
 
 
 
@@ -24,7 +30,7 @@ app.use('/users',usersRouter)
 
 
   
-const port = 3000;
+const port = process.env.PORT ?? 3000;
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 });
