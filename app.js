@@ -1,5 +1,7 @@
 
 import booksRouter from './routs/books.rout.js';
+import usersRouter from './routs/user.rout.js';
+
 
 
 
@@ -18,6 +20,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/books', booksRouter);
+app.use('/users',usersRouter)
 
 
   

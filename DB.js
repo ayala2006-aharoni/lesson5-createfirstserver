@@ -37,6 +37,31 @@ let books = [
     }
 ]
 
-export default{
-    books
-}
+let users = [
+    {
+        code: 1,
+        nameuser: "ayala",
+        email: "ayala14351@gmail.com",
+        password: "1234",
+        books: []  // ריק
+    },
+    {
+        code: 2,
+        nameuser: "ayala",
+        email: "ayala14351@gmail.com",
+        password: "12345",
+        books: []  // ריק
+    },
+    {
+        code: 3,
+        nameuser: "ayala",
+        email: "ayala14351@gmail.com",
+        password: "123456",
+        books: []  // ריק
+    },
+]
+
+export default {
+    books,
+    users
+  };
