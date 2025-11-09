@@ -12,16 +12,20 @@ export const getallbooksby =(req,res)=>
       
 }
 
-export const getbookbyid =(req,res)=>
+export const getbookbyid =(req,res,next)=>
     {
         console.log(req.params); // אוביקט עם פרמטרי חובה
         console.log(req.query); // אוביקט עם פרמטרי רשות
         //+ זה בשביל ההמרה למספר
         const p = books.find(x => x.id === +req.params.id);
         // json להחזרת אוביקטים
+            if (!p) {
+                const err = new Error('Book not found');
+                err.status = 404;
+                next(err); // <- כאן השגיאה תגיע ל-generalErrorHandler
+                return;
+            }
         res.json(p)
-      
-
     }
     export const addbook=(req,res)=>
     {
